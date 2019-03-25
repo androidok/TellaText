@@ -3,13 +3,14 @@ package com.example.tellaText
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 
 class MainActivity : AppCompatActivity() {
 
-    var monitorSms = true
+    var monitorSms = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("active", true)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
