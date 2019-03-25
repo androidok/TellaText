@@ -2,4 +2,7 @@
     <string name="app_name">TellaText</string>
     <string name="sent_a_text">sent a text</string>
     <string name="unknown">Unknown</string>
+    <string name="listen">LISTEN</string>
+    <string name="ignore">IGNORE</string>
+    <string name="call">CALL</string>
 </resources>
