@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:fancy="http://schemas.android.com/apk/res-auto"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".TextedActivity">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/unknown"
+            android:textSize="60sp"
+            android:textColor="#FFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/txt_sender" fancy:layout_constraintVertical_bias="0.101"/>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btn_call"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            fancy:fb_defaultColor="#00C853"
+            fancy:fb_focusColor="#9bd823"
+            fancy:fb_radius="30dp"
+            fancy:fb_text="CALL"
+            fancy:fb_textSize="40sp"
+            fancy:fb_textColor="#FFFFFF"
+            android:onClick="callSender"
+            android:layout_marginTop="72dp" fancy:layout_constraintTop_toBottomOf="@+id/textView2"
+            fancy:layout_constraintStart_toStartOf="@+id/textView2"
+            fancy:layout_constraintEnd_toEndOf="@+id/textView2"/>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btn_speak"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            fancy:fb_defaultColor="#FFD600"
+            fancy:fb_focusColor="#9bd823"
+            fancy:fb_radius="30dp"
+            fancy:fb_text="SPEAK"
+            fancy:fb_textSize="40sp"
+            fancy:fb_textColor="#FFFFFF"
+            android:onClick="speakMSG"
+            fancy:layout_constraintStart_toStartOf="@+id/textView2"
+            fancy:layout_constraintEnd_toEndOf="@+id/textView2" fancy:layout_constraintHorizontal_bias="0.513"
+            android:layout_marginTop="8dp" fancy:layout_constraintTop_toBottomOf="@+id/btn_call"/>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btn_ignore"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            fancy:fb_defaultColor="#DD2C00"
+            fancy:fb_focusColor="#9bd823"
+            fancy:fb_radius="30dp"
+            fancy:fb_text="IGNORE"
+            fancy:fb_textSize="40sp"
+            fancy:fb_textColor="#FFFFFF"
+            android:onClick="ignoreMSG"
+            fancy:layout_constraintStart_toStartOf="@+id/textView2"
+            fancy:layout_constraintEnd_toEndOf="@+id/textView2" fancy:layout_constraintHorizontal_bias="0.522"
+            android:layout_marginTop="8dp" fancy:layout_constraintTop_toBottomOf="@+id/btn_speak"/>
+
+    <TextView
+            android:text="@string/sent_a_text"
+            android:textColor="#FFF"
+            android:textSize="30sp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/textView2"
+            fancy:layout_constraintTop_toBottomOf="@+id/txt_sender" android:layout_marginTop="24dp"
+            fancy:layout_constraintStart_toStartOf="@+id/txt_sender" fancy:layout_constraintEnd_toEndOf="@+id/txt_sender"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
