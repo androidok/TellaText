@@ -26,6 +26,14 @@ class MainActivity : AppCompatActivity() {
 
         statusTxtView = findViewById(R.id.txt_status)
 
+        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("active", false)) {
+            statusTxtView!!.text = getString(R.string.status_enabled)
+            statusTxtView!!.setTextColor(Color.parseColor("#00C853"))
+        } else {
+            statusTxtView!!.text = getString(R.string.status_enabled)
+            statusTxtView!!.setTextColor(Color.parseColor("#00C853"))
+        }
+
         requestPermissions()
     }
 

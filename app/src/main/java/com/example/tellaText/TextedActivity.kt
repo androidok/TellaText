@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
+
 class TextedActivity : AppCompatActivity() {
 
     private var smsSender = "Unknown"
