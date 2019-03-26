@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class TextedActivity : AppCompatActivity() {
 
-    private var smsSender = ""
-    private var smsMessage = ""
+    private var smsSender = "Unknown"
+    private var smsMessage = "No text found"
     private var textToSpeechSystem: TextToSpeech? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
