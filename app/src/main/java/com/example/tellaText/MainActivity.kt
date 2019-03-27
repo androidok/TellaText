@@ -2,6 +2,7 @@ package com.example.tellaText
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
@@ -15,14 +16,16 @@ import androidx.core.app.ActivityCompat
 
 class MainActivity : AppCompatActivity() {
 
-    @SuppressLint("CommitPrefEdits")
-    private val editor = PreferenceManager.getDefaultSharedPreferences(this).edit()!!
+    private lateinit var editor: SharedPreferences.Editor
 
     var statusTxtView: TextView? = null
 
+    @SuppressLint("CommitPrefEdits")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        editor = PreferenceManager.getDefaultSharedPreferences(this).edit()!!
 
         statusTxtView = findViewById(R.id.txt_status)
 
