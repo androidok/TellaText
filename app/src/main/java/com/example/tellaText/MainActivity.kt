@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity() {
             statusTxtView!!.text = getString(R.string.status_enabled)
             statusTxtView!!.setTextColor(Color.parseColor("#00C853"))
         } else {
-            statusTxtView!!.text = getString(R.string.status_enabled)
-            statusTxtView!!.setTextColor(Color.parseColor("#00C853"))
+            statusTxtView!!.text = getString(R.string.status_disabled)
+            statusTxtView!!.setTextColor(Color.parseColor("#DD2C00"))
         }
 
         requestPermissions()
