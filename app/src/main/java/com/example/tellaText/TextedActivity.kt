@@ -1,12 +1,16 @@
 package com.example.tellaText
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.ContactsContract.PhoneLookup
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+
+
 
 
 class TextedActivity : AppCompatActivity() {
@@ -40,5 +44,20 @@ class TextedActivity : AppCompatActivity() {
         textToSpeechSystem = TextToSpeech(this) { ttsInitResult ->
             if (TextToSpeech.SUCCESS == ttsInitResult) textToSpeechSystem!!.speak(smsMessage, TextToSpeech.QUEUE_ADD, null)
         }
+    }
+
+    fun contactExists(context: Context, number: String): Boolean {
+        val lookupUri = Uri.withAppendedPath(
+            PhoneLookup.CONTENT_FILTER_URI,
+            Uri.encode(number)
+        )
+        val mPhoneNumberProjection = arrayOf(PhoneLookup._ID, PhoneLookup.NUMBER, PhoneLookup.DISPLAY_NAME)
+        val cursor = context.contentResolver.query(lookupUri, mPhoneNumberProjection, null, null, null)
+        cursor.use { cur ->
+            if (cur!!.moveToFirst()) {
+                return true
+            }
+        }
+        return false
     }
 }
