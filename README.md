@@ -13,6 +13,9 @@ TellaText is open source & doesn't even use any internet what so ever. You text 
 ### Price
 Free. I love to code. I need nothing more.
 
+## Download
+Eventually you will be able to download TellaText on F-droid & Google Play. **For now** you have to go to the release tab on GitHub, and download the .apk file, then run it.
+
 ### Other
 **Image?** Soon.  
 **Release?** Currently aiming for this weekend.
