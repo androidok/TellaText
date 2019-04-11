@@ -4,13 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.BaseColumns
+import android.provider.ContactsContract
 import android.provider.ContactsContract.PhoneLookup
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
-
 
 
 class TextedActivity : AppCompatActivity() {
@@ -23,7 +23,9 @@ class TextedActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_texted)
 
-        smsSender = intent.getStringExtra("sms_sender")
+        if (contactExists(this, intent.getStringExtra("sms_sender"))) {
+            smsSender = getContactName(intent.getStringExtra("sms_sender"))
+        }
         smsMessage = intent.getStringExtra("sms_body")
 
         val senderTxtView: TextView = findViewById(R.id.txt_sender)
@@ -46,7 +48,7 @@ class TextedActivity : AppCompatActivity() {
         }
     }
 
-    fun contactExists(context: Context, number: String): Boolean {
+    private fun contactExists(context: Context, number: String): Boolean {
         val lookupUri = Uri.withAppendedPath(
             PhoneLookup.CONTENT_FILTER_URI,
             Uri.encode(number)
@@ -60,4 +62,28 @@ class TextedActivity : AppCompatActivity() {
         }
         return false
     }
+
+    private fun getContactName(number: String): String {
+        val uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(number))
+        var name = "?"
+
+        val contentResolver = contentResolver
+        val lookup = contentResolver.query(
+            uri,
+            arrayOf(BaseColumns._ID, ContactsContract.PhoneLookup.DISPLAY_NAME),
+            null,
+            null,
+            null
+        )
+
+        lookup.use { contactLookup ->
+            if (contactLookup != null && contactLookup.count > 0) {
+                contactLookup.moveToNext()
+                name = contactLookup.getString(contactLookup.getColumnIndex(ContactsContract.Data.DISPLAY_NAME))
+            }
+        }
+
+        return name
+    }
+
 }

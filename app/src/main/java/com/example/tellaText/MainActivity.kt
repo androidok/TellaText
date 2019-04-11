@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         statusTxtView = findViewById(R.id.txt_status)
 
+        // TODO: remove duplication with 'enableMonitor' & 'disableMonitor'
         if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("active", false)) {
             statusTxtView!!.text = getString(R.string.status_enabled)
             statusTxtView!!.setTextColor(Color.parseColor("#00C853"))
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun requestPermissions() {
         ActivityCompat.requestPermissions(this,
-            arrayOf(Manifest.permission.READ_SMS, Manifest.permission.SEND_SMS, Manifest.permission.RECEIVE_SMS, Manifest.permission.CALL_PHONE),
+            arrayOf(Manifest.permission.READ_SMS, Manifest.permission.SEND_SMS, Manifest.permission.RECEIVE_SMS, Manifest.permission.CALL_PHONE, Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS),
             101)
     }
 
