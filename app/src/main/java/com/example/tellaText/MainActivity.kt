@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity() {
 
         statusTxtView!!.text = getString(R.string.status_enabled)
         statusTxtView!!.setTextColor(Color.parseColor("#00C853"))
+
+        Utils.vibrate(this)
     }
 
     fun disableMonitor(view: View) {
@@ -55,6 +57,8 @@ class MainActivity : AppCompatActivity() {
 
         statusTxtView!!.text = getString(R.string.status_disabled)
         statusTxtView!!.setTextColor(Color.parseColor("#DD2C00"))
+
+        Utils.vibrate(this)
     }
 
     private fun requestPermissions() {
