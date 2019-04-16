@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.provider.BaseColumns
 import android.provider.ContactsContract
 import android.provider.ContactsContract.PhoneLookup
-import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -15,9 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class TextedActivity : AppCompatActivity() {
 
-    private var smsSender = "Unknown"
-    private var smsMessage = "No text found"
-    private var textToSpeechSystem: TextToSpeech? = null
+    private var smsSender = getString(R.string.unknown)
+    private var smsMessage = getString(R.string.nothing_found)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +28,8 @@ class TextedActivity : AppCompatActivity() {
 
         val senderTxtView: TextView = findViewById(R.id.txt_sender)
         senderTxtView.text = smsSender
+
+        Utils.vibrate(this)
     }
 
     fun callSender(view: View) {
@@ -43,9 +43,7 @@ class TextedActivity : AppCompatActivity() {
     }
 
     fun speakMSG(view: View) {
-        textToSpeechSystem = TextToSpeech(this) { ttsInitResult ->
-            if (TextToSpeech.SUCCESS == ttsInitResult) textToSpeechSystem!!.speak(smsMessage, TextToSpeech.QUEUE_ADD, null)
-        }
+        Utils.speak(this, smsMessage)
     }
 
     private fun contactExists(context: Context, number: String): Boolean {
