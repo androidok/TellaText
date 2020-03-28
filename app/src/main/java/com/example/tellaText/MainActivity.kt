@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         statusTxtView = findViewById(R.id.txt_status)
 
-        // TODO: remove duplication with 'enableMonitor' & 'disableMonitor'
         if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("active", false)) {
             statusTxtView!!.text = getString(R.string.status_enabled)
             statusTxtView!!.setTextColor(Color.parseColor("#00C853"))

@@ -62,13 +62,13 @@ class TextedActivity : AppCompatActivity() {
     }
 
     private fun getContactName(number: String): String {
-        val uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(number))
+        val uri = Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, Uri.encode(number))
         var name = "?"
 
         val contentResolver = contentResolver
         val lookup = contentResolver.query(
             uri,
-            arrayOf(BaseColumns._ID, ContactsContract.PhoneLookup.DISPLAY_NAME),
+            arrayOf(BaseColumns._ID, PhoneLookup.DISPLAY_NAME),
             null,
             null,
             null
