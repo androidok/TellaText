@@ -14,12 +14,15 @@ import androidx.appcompat.app.AppCompatActivity
 
 class TextedActivity : AppCompatActivity() {
 
-    private var smsSender = getString(R.string.unknown)
-    private var smsMessage = getString(R.string.nothing_found)
+    private var smsSender = ""
+    private var smsMessage = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_texted)
+
+        smsSender = getString(R.string.unknown)
+        smsMessage = getString(R.string.nothing_found)
 
         if (contactExists(this, intent.getStringExtra("sms_sender"))) {
             smsSender = getContactName(intent.getStringExtra("sms_sender"))

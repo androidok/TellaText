@@ -10,7 +10,6 @@
     <string name="warning_permission">We can\'t function properly without granting all permissions</string>
     <string name="status_disabled">Status: DISABLED</string>
     <string name="status_enabled">Status: ENABLED</string>
-    <string name="unknown">Unknown</string>
     <string name="nothing_found">No text found</string>
     <string name="playing">Playing</string>
 </resources>
