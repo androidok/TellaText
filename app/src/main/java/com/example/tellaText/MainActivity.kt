@@ -16,7 +16,7 @@ import androidx.core.app.ActivityCompat
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var editor: SharedPreferences.Editor
+    private lateinit var prefs: SharedPreferences.Editor
 
     var statusTxtView: TextView? = null
 
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        editor = PreferenceManager.getDefaultSharedPreferences(this).edit()!!
+        prefs = PreferenceManager.getDefaultSharedPreferences(this).edit()!!
 
         statusTxtView = findViewById(R.id.txt_status)
 
@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun enableMonitor(view: View) {
-        editor.putBoolean("active", true)
-        editor.commit()
+        prefs.putBoolean("active", true)
+        prefs.commit()
 
         statusTxtView!!.text = getString(R.string.status_enabled)
         statusTxtView!!.setTextColor(Color.parseColor("#00C853"))
@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun disableMonitor(view: View) {
-        editor.putBoolean("active", false)
-        editor.commit()
+        prefs.putBoolean("active", false)
+        prefs.commit()
 
         statusTxtView!!.text = getString(R.string.status_disabled)
         statusTxtView!!.setTextColor(Color.parseColor("#DD2C00"))
