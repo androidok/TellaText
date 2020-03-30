@@ -5,6 +5,7 @@
     <string name="listen">LISTEN</string>
     <string name="ignore">IGNORE</string>
     <string name="call">CALL</string>
+    <string name="respond">RESPOND</string>
     <string name="description">TellaText will run in the background monitoring for incoming text messages</string>
     <string name="report_issue">Report issue</string>
     <string name="warning_permission">We can\'t function properly without granting all permissions</string>

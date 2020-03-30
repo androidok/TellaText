@@ -32,7 +32,7 @@
             fancy:fb_defaultColor="#00C853"
             fancy:fb_focusColor="#9bd823"
             fancy:fb_radius="30dp"
-            fancy:fb_text="@string/call"
+            fancy:fb_text="@string/respond"
             fancy:fb_textSize="40sp"
             fancy:fb_textColor="@color/colorPrimaryDark"
             android:onClick="callSender"

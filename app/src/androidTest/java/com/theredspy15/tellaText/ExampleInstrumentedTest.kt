@@ -1,4 +1,4 @@
-package com.example.tellaText
+package com.theredspy15.tellaText
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

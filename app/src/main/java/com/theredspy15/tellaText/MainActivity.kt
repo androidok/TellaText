@@ -1,4 +1,4 @@
-package com.example.tellaText
+package com.theredspy15.tellaText
 
 import android.Manifest
 import android.annotation.SuppressLint
