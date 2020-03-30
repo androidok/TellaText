@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var prefs: SharedPreferences.Editor
 
-    var statusTxtView: TextView? = null
+    private var statusTxtView: TextView? = null
 
     @SuppressLint("CommitPrefEdits")
     override fun onCreate(savedInstanceState: Bundle?) {

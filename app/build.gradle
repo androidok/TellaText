@@ -24,6 +24,7 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.preference:preference:1.1.0'
     implementation 'com.sdsmdg.tastytoast:tastytoast:0.1.1'
     implementation 'com.github.medyo:fancybuttons:1.9.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
