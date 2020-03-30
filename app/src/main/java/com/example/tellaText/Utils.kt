@@ -35,6 +35,6 @@ class Utils {
                     }
                 }
             }
-        } else TastyToast.makeText(context, "Message too long", TastyToast.LENGTH_LONG, TastyToast.ERROR).show()
+        } else TastyToast.makeText(context, context.getString(R.string.msg_too_long), TastyToast.LENGTH_LONG, TastyToast.ERROR).show()
     }
 }

@@ -12,4 +12,5 @@
     <string name="status_enabled">Status: ENABLED</string>
     <string name="nothing_found">No text found</string>
     <string name="playing">Playing</string>
+    <string name="msg_too_long">Message too long</string>
 </resources>
