@@ -3,9 +3,9 @@ package com.theredspy15.tellaText
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.preference.PreferenceManager
 import android.provider.Telephony
 import androidx.core.content.ContextCompat.startActivity
+import androidx.preference.PreferenceManager
 
 class SmsListener : BroadcastReceiver() {
 

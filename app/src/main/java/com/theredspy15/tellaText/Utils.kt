@@ -1,9 +1,12 @@
 package com.theredspy15.tellaText
 
 import android.content.Context
+import android.net.Uri
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.provider.BaseColumns
+import android.provider.ContactsContract
 import android.speech.tts.TextToSpeech
 import com.sdsmdg.tastytoast.TastyToast
 
@@ -36,5 +39,43 @@ class Utils {
                 }
             }
         } else TastyToast.makeText(context, context.getString(R.string.msg_too_long), TastyToast.LENGTH_LONG, TastyToast.ERROR).show()
+
+        fun getContactName(number: String, context: Context): String {
+            val uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(number))
+            var name = "?"
+
+            val contentResolver = context.contentResolver
+            val lookup = contentResolver.query(
+                uri,
+                arrayOf(BaseColumns._ID, ContactsContract.PhoneLookup.DISPLAY_NAME),
+                null,
+                null,
+                null
+            )
+
+            lookup.use { contactLookup ->
+                if (contactLookup != null && contactLookup.count > 0) {
+                    contactLookup.moveToNext()
+                    name = contactLookup.getString(contactLookup.getColumnIndex(ContactsContract.Data.DISPLAY_NAME))
+                }
+            }
+
+            return name
+        }
+
+        fun contactExists(context: Context, number: String): Boolean {
+            val lookupUri = Uri.withAppendedPath(
+                ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
+                Uri.encode(number)
+            )
+            val mPhoneNumberProjection = arrayOf(ContactsContract.PhoneLookup._ID, ContactsContract.PhoneLookup.NUMBER, ContactsContract.PhoneLookup.DISPLAY_NAME)
+            val cursor = context.contentResolver.query(lookupUri, mPhoneNumberProjection, null, null, null)
+            cursor.use { cur ->
+                if (cur!!.moveToFirst()) {
+                    return true
+                }
+            }
+            return false
+        }
     }
 }

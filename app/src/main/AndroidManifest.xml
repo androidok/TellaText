@@ -20,7 +20,7 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:name="com.theredspy15.tellatext.RespondActivity"
+                android:name=".RespondActivity"
                 android:screenOrientation="portrait"/>
         <activity
                 android:name="com.theredspy15.tellaText.MainActivity"
